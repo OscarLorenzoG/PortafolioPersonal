@@ -69,3 +69,34 @@ tarjetas.forEach(tarjeta => {
 
   observer.observe(tarjeta);
 });
+
+
+const hamburger = document.querySelector(".hamburger");
+
+const navLinks = document.querySelector(".nav-links");
+
+const navItems = document.querySelectorAll(".nav-links a");
+
+/* Abrir y cerrar menu */
+
+hamburger.addEventListener("click", () => {
+
+    hamburger.classList.toggle("active");
+
+    navLinks.classList.toggle("active");
+
+});
+
+/* Cerrar menu al presionar un link */
+
+navItems.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        hamburger.classList.remove("active");
+
+        navLinks.classList.remove("active");
+
+    });
+
+});

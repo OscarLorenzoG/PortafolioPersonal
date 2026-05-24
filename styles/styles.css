@@ -255,6 +255,7 @@
         margin-right: auto;
         padding-left: 2rem;
         padding-right: 2rem;
+        transition: all 0.3s ease-in-out;
     }
 
     .skill-icono img {
@@ -285,7 +286,7 @@
     }
 
     .skill-card:hover {
-        box-shadow: var(--sombra);
+        box-shadow: 0 0 4px 1px var(--sombra);
         border-color: var(--azul);
     }
 
@@ -360,7 +361,7 @@
         transition: transform 0.3s ease-in-out;
     }
 
-    .ico img:hover{
+    .ico img:hover {
         transform: scale(1.2);
     }
 
@@ -477,7 +478,7 @@
     }
 
     /* CONTACTO */
-       
+
     #contacto {
         margin-bottom: 50px;
     }
@@ -645,8 +646,96 @@
         }
     }
 
-    @media (max-width: 900px){
-        .nav-links li a{
-            display: none;
+    @media (max-width: 900px)  {
+   
+        .hamburger {
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .hamburger-buttons {
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+            margin-right: 1.2rem;
+        }
+
+        .hamburger-buttons div {
+            width: 36px;
+            background-color: var(--azul);
+            gap: 1rem;
+
+            border-radius: 5px;
+            padding: 2.2px;
+            margin: 3px;
+
+            transition: all .3s ease;
+        }
+
+        .nav-links li a {
+            display: flex;
+        }
+
+        .nav-links li a {
+            margin-top: 2rem;
+            position: relative;
+
+            transform: translateY(2rem);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            position: absolute;
+            top: 95px;
+            margin-left: -42px;
+
+            width: 100%;
+            max-width: 400px;
+
+            padding-bottom: 90vh;
+            list-style: none;
+
+            background-color: var(--azul-claro);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateX(-20px);
+
+            transition:
+                opacity .4s ease,
+                transform .4s ease,
+                visibility .4s ease;
+        }
+
+        .nav-links.active {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+        .hamburger.active .hamburger-buttons div:nth-child(1) {
+            transform:
+                rotate(45deg) translate(7px, 7px);
+        }
+
+        /* Segunda linea */
+
+        .hamburger.active .hamburger-buttons div:nth-child(2) {
+            opacity: 0;
+        }
+
+        /* Tercera linea */
+
+        .hamburger.active .hamburger-buttons div:nth-child(3) {
+            transform:
+                rotate(-45deg) translate(7px, -7px);
         }
     }
